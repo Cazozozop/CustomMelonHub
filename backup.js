@@ -723,6 +723,24 @@ function ChangeKeybind(Module, Key, KeyCode) {
 
 
 
+const closeButton = document.createElement("button");
+closeButton.innerText = "❌ Fermer";
+closeButton.style.cssText = `
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 1000000;
+`;
+closeButton.onclick = () => {
+  UI_frame.style.display = "none";
+  reopenButton.style.display = "block";
+};
+UI_frame.appendChild(closeButton);
 
 // UI
 var UI_link = document.createElement('link');
@@ -833,6 +851,31 @@ document.addEventListener('mouseup', function () {
     isDragging = false;
     UI_frame.style.cursor = 'default';
 });
+// Bouton pour réouvrir le menu quand il est fermé
+const reopenButton = document.createElement("div");
+reopenButton.innerText = "🔳";
+reopenButton.style.cssText = `
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: lime;
+  color: black;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 999999;
+  border-radius: 5px;
+  display: none;
+`;
+reopenButton.onclick = () => {
+  UI_frame.style.display = "block";
+  reopenButton.style.display = "none";
+};
+document.body.appendChild(reopenButton);
 // Functions
 var buttonStateTable = {};
 function createRightButton(title, secondTitle, additionalInfo, onClick) {
