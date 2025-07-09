@@ -566,12 +566,12 @@ var Exploits = [
         pertick: function (status) {
             if (status) {
                 if (config.CurrentlyInjected && config.noaInstance) {
-                    Utilities.ChangeWalkSpeed(7.4);
+                    Utilities.ChangeWalkSpeed(10.4);
                 }
             }
             else {
                 if (config.CurrentlyInjected && config.noaInstance) {
-                    Utilities.ChangeWalkSpeed(4.5);
+                    Utilities.ChangeWalkSpeed(7.5);
                 }
             }
         },
@@ -608,7 +608,7 @@ var Exploits = [
                     var z = position[2];
                     var blockInFront = noa.getBlock(x, y, z + 1);
                     if (blockInFront !== 0) {
-                        noa.ents.getPhysicsBody(player).applyImpulse([0, noa.serverSettings.jumpAmount * 0.03, 0]);
+                        noa.ents.getPhysicsBody(player).applyImpulse([0, noa.serverSettings.jumpAmount * 0.01, 0]);
                     }
                 }
             }
